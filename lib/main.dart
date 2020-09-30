@@ -1,39 +1,24 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
 void main() {
-  runApp(Materialap());
+  runApp(MyApp());
 }
 
-class Materialap extends StatelessWidget {
+class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        // Title
-        title: "Simple Material App",
-        // Home
-        home: Scaffold(
-          // Appbar
-          appBar: AppBar(
-            // Title
-            title: Text("Simple Material App"),
+    return(MaterialApp(
+      title: 'Dummy Data',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Dummy Data'),
+        ),
+        body: Container(
+          child: Center(
+            child: Text('Dummy Data'),
           ),
-          // Body
-          body: Container(
-            // Center the content
-            child: Center(
-              // Add Text
-              child: Logo(),
-            ),
-          ),
-        ));
-  }
-}
-
-class Logo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    AssetImage assetImage = AssetImage('assets/images/mask.png');
-    Image image = Image(image: assetImage);
-    return (image);
+        ),
+      ),
+    ));
   }
 }
