@@ -13,12 +13,28 @@ class MyApp extends StatelessWidget{
         appBar: AppBar(
           title: Text('Dummy Data'),
         ),
-        body: Container(
-          child: Center(
-            child: Text('Hello World'),
+        body: Center(
+          child: Column(
+            children: <Widget> [
+              Padding(
+                padding: EdgeInsets.all(20),
+              ),
+              Text(
+                "Button Stateless Example ",
+                style: TextStyle(color: Colors.black),
+              ),
+              RaisedButton(
+                child: Text('Click ME'),
+                onPressed: ClickMe,
+              )
+            ],
           ),
         ),
       ),
     ));
+  }
+
+  void ClickMe() {
+    print('WORKING');
   }
 }
