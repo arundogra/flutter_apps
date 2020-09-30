@@ -17,6 +17,9 @@ class City extends StatefulWidget {
 
 class _CityState extends State <City> {
   String cityName = '';
+  var _stateNames = ['Punjab', 'Haryana', 'Himachal', 'UP', 'Kashnmir', 'Shimla'];
+  var currentStateSelected = 'Punjab';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,6 +36,20 @@ class _CityState extends State <City> {
                   cityName = userInput;
                 });
               },
+            ),
+            DropdownButton<String> (
+              items: _stateNames.map((String dropDownStrinItem) {
+                return DropdownMenuItem<String>(
+                  value: dropDownStrinItem,
+                  child: Text(dropDownStrinItem),
+                );
+              }).toList(),
+              onChanged: (String newStateSelected) {
+                setState(() {
+                  this.currentStateSelected = newStateSelected;
+                });
+              },
+              value: currentStateSelected,
             ),
             Padding(
               padding: EdgeInsets.all(20.1),
