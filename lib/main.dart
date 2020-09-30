@@ -1,40 +1,49 @@
-import "package:flutter/material.dart";
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MaterialApp(
+    title: 'Perfect StateFull Widget Example',
+    home: City(),
+  ));
 }
 
-class MyApp extends StatelessWidget{
+class City extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return(_CityState());
+  }
+}
+
+class _CityState extends State <City> {
+  String cityName = '';
   @override
   Widget build(BuildContext context) {
-    return(MaterialApp(
-      title: 'Dummy Data',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Dummy Data'),
-        ),
-        body: Center(
-          child: Column(
-            children: <Widget> [
-              Padding(
-                padding: EdgeInsets.all(20),
+    return Scaffold(
+      appBar:  AppBar(
+        title: Text('Favourite City'),
+      ),
+      body: Container(
+        margin: EdgeInsets.all(20.1),
+        child: Column(
+          children: [
+            TextField(
+              onSubmitted: (String userInput) {
+                setState(() {
+                  cityName = userInput;
+                });
+              },
+            ),
+            Padding(
+              padding: EdgeInsets.all(20.1),
+              child: Text(
+                "Your Favourite City is $cityName",
+                style: TextStyle(fontSize: 20.0),
               ),
-              Text(
-                "Button Stateless Example ",
-                style: TextStyle(color: Colors.black),
-              ),
-              RaisedButton(
-                child: Text('Click ME'),
-                onPressed: ClickMe,
-              )
-            ],
-          ),
+            )
+          ],
         ),
       ),
-    ));
-  }
-
-  void ClickMe() {
-    print('WORKING');
+    );
   }
 }
